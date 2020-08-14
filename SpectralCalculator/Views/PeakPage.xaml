@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SpectralCalculator.Views.PeakPage" 
+             xmlns:vm="clr-namespace:SpectralCalculator.ViewModels" 
+             xmlns:ctrl="clr-namespace:SpectralCalculator.Controls" 
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:PeakViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout>
+            <!-- Laser Wavelength --> 
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label Text="Laser Wavelength (nm)" />
+                <ctrl:ExtendedEntry 
+                       Text="{Binding laserWavelength}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryLaserWavelength_Completed"
+                       Keyboard="Numeric" />
+            </FlexLayout>
+
+            <!-- Peak Wavelength --> 
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label Text="Peak Wavelength (nm)" />
+                <ctrl:ExtendedEntry
+                       Text="{Binding peakWavelength}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryPeakWavelength_Completed"
+                       Keyboard="Numeric" />
+            </FlexLayout>
+
+            <!-- Peak Wavenumber --> 
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label Text="Peak Wavenumber (cm⁻¹)" />
+                <ctrl:ExtendedEntry
+                       Text="{Binding peakWavenumber}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryPeakWavenumber_Completed"
+                       Keyboard="Numeric" />
+            </FlexLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

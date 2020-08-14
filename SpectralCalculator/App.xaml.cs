@@ -1,7 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SpectralCalculator.Services;
 using SpectralCalculator.Views;
 
 namespace SpectralCalculator
@@ -13,7 +12,6 @@ namespace SpectralCalculator
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
