@@ -21,7 +21,7 @@
             <!-- Laser Wavelength --> 
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Laser Wavelength (nm)" />
-                <ctrl:ExtendedEntry 
+                <ctrl:EntryDone
                        Text="{Binding laserWavelength}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -34,7 +34,7 @@
             <!-- Peak Wavelength --> 
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Peak Wavelength (nm)" />
-                <ctrl:ExtendedEntry
+                <ctrl:EntryDone
                        Text="{Binding peakWavelength}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -47,7 +47,7 @@
             <!-- Peak Wavenumber --> 
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Peak Wavenumber (cm⁻¹)" />
-                <ctrl:ExtendedEntry
+                <ctrl:EntryDoneNegative
                        Text="{Binding peakWavenumber}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
