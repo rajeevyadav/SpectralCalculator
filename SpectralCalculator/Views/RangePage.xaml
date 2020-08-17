@@ -3,10 +3,110 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="SpectralCalculator.Views.RangePage" 
              Title="{Binding Title}" 
+             xmlns:ctrl="clr-namespace:SpectralCalculator.Controls" 
              xmlns:vm="clr-namespace:SpectralCalculator.ViewModels">
 
     <ContentPage.BindingContext>
         <vm:RangeViewModel />
     </ContentPage.BindingContext>
 
+    <ScrollView>
+        <StackLayout>
+            <Label /> <!-- keeps Grid from filling page...? -->
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition /> <!-- Laser (nm)[_________] -->
+                    <RowDefinition /> <!--             nm   cm-1 -->
+                    <RowDefinition /> <!-- Start     [___] [___] -->
+                    <RowDefinition /> <!-- End       [___] [___] -->
+                    <RowDefinition /> <!-- Range     [___] [___] -->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!-- Row 0 -->
+                <Label Grid.Row="0" Grid.Column="0" Text="Laser (nm)" />
+                <ctrl:EntryDone
+                       Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                       Text="{Binding laserWavelength}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="250"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryLaserWavelength_Completed"
+                       Keyboard="Numeric" />
+
+                <!-- Row 1 -->
+                <Label Text="λ (nm)" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"/>
+                <Label Text="ṽ (cm⁻¹)" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center"/>
+
+                <!-- Row 2 -->
+                <Label Text="Start" Grid.Row="2" Grid.Column="0"/>
+                <ctrl:EntryDone
+                       Grid.Row="2" Grid.Column="1"
+                       Text="{Binding wavelengthStart}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryWavelengthStart_Completed"
+                       Keyboard="Numeric" />
+                <ctrl:EntryDoneNegative
+                       Grid.Row="2" Grid.Column="2"
+                       Text="{Binding wavenumberStart}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryWavenumberStart_Completed"
+                       Keyboard="Numeric" />
+
+                <!-- Row 3 -->
+                <Label Text="End" Grid.Row="3" Grid.Column="0"/>
+                <ctrl:EntryDone
+                       Grid.Row="3" Grid.Column="1"
+                       Text="{Binding wavelengthEnd}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryWavelengthEnd_Completed"
+                       Keyboard="Numeric" />
+                <ctrl:EntryDoneNegative
+                       Grid.Row="3" Grid.Column="2"
+                       Text="{Binding wavenumberEnd}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryWavenumberEnd_Completed"
+                       Keyboard="Numeric" />
+
+                <!-- Row 4 -->
+                <Label Text="Range" Grid.Row="4" Grid.Column="0"/>
+                <ctrl:EntryDone
+                       Grid.Row="4" Grid.Column="1"
+                       Text="{Binding wavelengthRange}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryWavelengthRange_Completed"
+                       Keyboard="Numeric" />
+                <ctrl:EntryDoneNegative
+                       Grid.Row="4" Grid.Column="2"
+                       Text="{Binding wavenumberRange}" 
+                       HorizontalTextAlignment="Center"
+                       WidthRequest="100"
+                       ReturnType="Done"
+                       Focused="entry_Focused"
+                       Completed="entryWavenumberRange_Completed"
+                       Keyboard="Numeric" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

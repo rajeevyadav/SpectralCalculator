@@ -33,7 +33,7 @@
 
             <!-- Peak Wavelength --> 
             <FlexLayout JustifyContent="SpaceBetween">
-                <Label Text="Peak Wavelength (nm)" />
+                <Label Text="Wavelength (nm)" />
                 <ctrl:EntryDone
                        Text="{Binding peakWavelength}" 
                        HorizontalTextAlignment="Center"
@@ -46,7 +46,7 @@
 
             <!-- Peak Wavenumber --> 
             <FlexLayout JustifyContent="SpaceBetween">
-                <Label Text="Peak Wavenumber (cm⁻¹)" />
+                <Label Text="Wavenumber (cm⁻¹)" />
                 <ctrl:EntryDoneNegative
                        Text="{Binding peakWavenumber}" 
                        HorizontalTextAlignment="Center"
@@ -56,6 +56,8 @@
                        Completed="entryPeakWavenumber_Completed"
                        Keyboard="Numeric" />
             </FlexLayout>
+
+            <!-- Equations -->
         </StackLayout>
     </ScrollView>
 </ContentPage>

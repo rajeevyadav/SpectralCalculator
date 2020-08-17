@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Windows.Input;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 
 using SpectralCalculator.Models;
 
@@ -19,7 +16,7 @@ namespace SpectralCalculator.ViewModels
 
         public string Title
         {
-            get => "Peak";
+            get => "Raman Peak Calculator";
         }
 
         public double laserWavelength
