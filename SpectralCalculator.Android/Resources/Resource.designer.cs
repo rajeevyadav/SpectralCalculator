@@ -8373,14 +8373,23 @@ namespace SpectralCalculator.Droid
 			// aapt resource value: 0x7F070075
 			public const int tab_feed = 2131165301;
 			
+			// aapt resource value: 0x7F070078
+			public const int tooltip_frame_dark = 2131165304;
+			
+			// aapt resource value: 0x7F070079
+			public const int tooltip_frame_light = 2131165305;
+			
 			// aapt resource value: 0x7F070076
-			public const int tooltip_frame_dark = 2131165302;
+			public const int to_wavelength = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int tooltip_frame_light = 2131165303;
+			public const int to_wavenumber = 2131165303;
 			
-			// aapt resource value: 0x7F070078
-			public const int xamarin_logo = 2131165304;
+			// aapt resource value: 0x7F07007A
+			public const int wp_logo = 2131165306;
+			
+			// aapt resource value: 0x7F07007B
+			public const int xamarin_logo = 2131165307;
 			
 			static Drawable()
 			{
