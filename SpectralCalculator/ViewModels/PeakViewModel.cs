@@ -11,6 +11,8 @@ namespace SpectralCalculator.ViewModels
 {
     public class PeakViewModel : INotifyPropertyChanged
     {
+        PeakModel pm = new PeakModel();
+
         public PeakViewModel()
         {
             openWebsite = new Command(async () => await Browser.OpenAsync("https://wasatchphotonics.com"));
@@ -27,39 +29,36 @@ namespace SpectralCalculator.ViewModels
 
         public double laserWavelength
         {
-            get => _laserWavelength;
+            get => pm.laserWavelength;
             private set
             {
                 Console.WriteLine($"PVM.laserWavelength = {value}");
-                _laserWavelength = value;
+                pm.laserWavelength = value;
                 OnPropertyChanged();
             }
         }
-        double _laserWavelength;
 
-        public double peakWavelength
+        public double peakWavelength 
         {
-            get => _peakWavelength;
+            get => pm.peakWavelength;
             private set
             {
                 Console.WriteLine($"PVM.peakWavelength = {value}");
-                _peakWavelength = value;
+                pm.peakWavelength = value;
                 OnPropertyChanged();
             }
         }
-        double _peakWavelength;
 
         public double peakWavenumber
         {
-            get => _peakWavenumber;
+            get => pm.peakWavenumber;
             private set
             {
                 Console.WriteLine($"PVM.peakWavenumber = {value}");
-                _peakWavenumber = value;
+                pm.peakWavenumber = value;
                 OnPropertyChanged();
             }
         }
-        double _peakWavenumber;
 
         ////////////////////////////////////////////////////////////////////////
         // accept keyboard "completed" events from View code-behind
@@ -114,9 +113,7 @@ namespace SpectralCalculator.ViewModels
             if (laserWavelength <= 0)
                 return;
 
-            var result = SpectralMath.computeWavenumber(laserWavelength, peakWavelength);
-            Console.WriteLine($"PVM.computePeakWavenumber -> {result}");
-            peakWavenumber = result;
+            peakWavenumber = SpectralMath.computeWavenumber(laserWavelength, peakWavelength);
         }
 
         void computePeakWavelength()
@@ -124,9 +121,7 @@ namespace SpectralCalculator.ViewModels
             if (laserWavelength <= 0)
                 return;
 
-            var result = SpectralMath.computeWavelength(laserWavelength, peakWavenumber);
-            Console.WriteLine($"PVM.computePeakWavelength -> {result}");
-            peakWavelength = result;
+            peakWavelength = SpectralMath.computeWavelength(laserWavelength, peakWavenumber);
         }
 
         ////////////////////////////////////////////////////////////////////////

@@ -11,6 +11,8 @@ namespace SpectralCalculator.ViewModels
 {
     public class RangeViewModel : INotifyPropertyChanged
     {
+        RangeModel rm = new RangeModel();
+
         public RangeViewModel()
         {
             openWebsite = new Command(async () => await Browser.OpenAsync("https://wasatchphotonics.com"));
@@ -27,87 +29,80 @@ namespace SpectralCalculator.ViewModels
 
         public double laserWavelength
         {
-            get => _laserWavelength;
+            get => rm.laserWavelength;
             private set
             {
                 Console.WriteLine($"RVM.laserWavelength = {value}");
-                _laserWavelength = value;
+                rm.laserWavelength = value;
                 OnPropertyChanged();
             }
         }
-        double _laserWavelength;
 
         public double wavelengthStart
         {
-            get => _wavelengthStart;
+            get => rm.wavelengthStart;
             private set
             {
                 Console.WriteLine($"RVM.wavelengthStart = {value}");
-                _wavelengthStart = value;
+                rm.wavelengthStart = value;
                 OnPropertyChanged();
             }
         }
-        double _wavelengthStart;
 
         public double wavenumberStart
         {
-            get => _wavenumberStart;
+            get => rm.wavenumberStart;
             private set
             {
                 Console.WriteLine($"RVM.wavenumberStart = {value}");
-                _wavenumberStart = value;
+                rm.wavenumberStart = value;
                 OnPropertyChanged();
             }
         }
-        double _wavenumberStart;
 
         public double wavelengthEnd
         {
-            get => _wavelengthEnd;
+            get => rm.wavelengthEnd;
             private set
             {
                 Console.WriteLine($"RVM.wavelengthEnd = {value}");
-                _wavelengthEnd = value;
+                rm.wavelengthEnd = value;
                 OnPropertyChanged();
             }
         }
-        double _wavelengthEnd;
 
         public double wavenumberEnd
         {
-            get => _wavenumberEnd;
+            get => rm.wavenumberEnd;
             private set
             {
                 Console.WriteLine($"RVM.wavenumberEnd = {value}");
-                _wavenumberEnd = value;
+                rm.wavenumberEnd = value;
                 OnPropertyChanged();
             }
         }
-        double _wavenumberEnd;
 
         public double wavelengthRange
         {
-            get => _wavelengthRange;
+            get => rm.wavelengthRange;
             private set
             {
                 Console.WriteLine($"RVM.wavelengthRange = {value}");
-                _wavelengthRange = value;
+                rm.wavelengthRange = value;
                 OnPropertyChanged();
             }
         }
-        double _wavelengthRange;
 
         public double wavenumberRange
         {
-            get => _wavenumberRange;
+            get => rm.wavenumberRange;
             private set
             {
                 Console.WriteLine($"RVM.wavenumberRange = {value}");
-                _wavenumberRange = value;
+                rm.wavenumberRange = value;
                 OnPropertyChanged();
             }
         }
-        double _wavenumberRange;
 
         ////////////////////////////////////////////////////////////////////////
         // accept keyboard "completed" events from View code-behind
@@ -267,10 +262,7 @@ namespace SpectralCalculator.ViewModels
         // Notifications
         ////////////////////////////////////////////////////////////////////////
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            Console.WriteLine($"RVM.OnPropertyChanged({propertyName})");
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "") =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

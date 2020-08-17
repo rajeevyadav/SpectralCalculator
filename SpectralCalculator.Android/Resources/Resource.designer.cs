@@ -8388,9 +8388,6 @@ namespace SpectralCalculator.Droid
 			// aapt resource value: 0x7F07007A
 			public const int wp_logo = 2131165306;
 			
-			// aapt resource value: 0x7F07007B
-			public const int xamarin_logo = 2131165307;
-			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

@@ -20,7 +20,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition /> <!-- Laser (nm)[_________] -->
-                    <RowDefinition /> <!--             nm   cm-1 -->
+                    <RowDefinition /> <!--            nm    cm-1 -->
                     <RowDefinition /> <!-- Start     [___] [___] -->
                     <RowDefinition /> <!-- End       [___] [___] -->
                     <RowDefinition /> <!-- Range     [___] [___] -->
@@ -35,11 +35,10 @@
                 <Label Grid.Row="0" Grid.Column="0" Text="Laser (nm)" />
                 <ctrl:EntryDone
                        Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
-                       Text="{Binding laserWavelength}" 
+                       Text="{Binding laserWavelength, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="250"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryLaserWavelength_Completed"
                        Keyboard="Numeric" />
 
@@ -51,20 +50,18 @@
                 <Label Text="Start" Grid.Row="2" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="2" Grid.Column="1"
-                       Text="{Binding wavelengthStart}" 
+                       Text="{Binding wavelengthStart, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryWavelengthStart_Completed"
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="2" Grid.Column="2"
-                       Text="{Binding wavenumberStart}" 
+                       Text="{Binding wavenumberStart, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryWavenumberStart_Completed"
                        Keyboard="Numeric" />
 
@@ -72,20 +69,18 @@
                 <Label Text="End" Grid.Row="3" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="3" Grid.Column="1"
-                       Text="{Binding wavelengthEnd}" 
+                       Text="{Binding wavelengthEnd, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryWavelengthEnd_Completed"
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="3" Grid.Column="2"
-                       Text="{Binding wavenumberEnd}" 
+                       Text="{Binding wavenumberEnd, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryWavenumberEnd_Completed"
                        Keyboard="Numeric" />
 
@@ -93,20 +88,18 @@
                 <Label Text="Range" Grid.Row="4" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="4" Grid.Column="1"
-                       Text="{Binding wavelengthRange}" 
+                       Text="{Binding wavelengthRange, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryWavelengthRange_Completed"
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="4" Grid.Column="2"
-                       Text="{Binding wavenumberRange}" 
+                       Text="{Binding wavenumberRange, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryWavenumberRange_Completed"
                        Keyboard="Numeric" />
             </Grid>

@@ -23,9 +23,6 @@ namespace SpectralCalculator.Views
             rvm = (RangeViewModel)BindingContext;
         }
 
-        // the user clicked in an Entry, so clear the field
-        void entry_Focused(Object sender, FocusEventArgs e) => (sender as Entry).Text = "";
-
         // the user closed an Entry keyboard, so relay the value
         void entryLaserWavelength_Completed(Object sender, EventArgs e) => rvm.setLaserWavelength((sender as Entry).Text);
         void entryWavelengthStart_Completed(Object sender, EventArgs e) => rvm.setWavelengthStart((sender as Entry).Text);

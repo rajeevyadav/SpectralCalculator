@@ -10,15 +10,10 @@
         <vm:PeakViewModel />
     </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <ScrollView Margin="10, 10, 10, 10" >
         <StackLayout>
             <ImageButton Source="wp_logo" 
+                         x:Name="logo"
                          Command="{Binding openWebsite}"
                          HorizontalOptions="CenterAndExpand" 
                          Margin="0, 10, 0, 0" />
@@ -27,11 +22,10 @@
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Laser Wavelength (nm)" />
                 <ctrl:EntryDone
-                       Text="{Binding laserWavelength}" 
+                       Text="{Binding laserWavelength, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryLaserWavelength_Completed"
                        Keyboard="Numeric" />
             </FlexLayout>
@@ -40,11 +34,10 @@
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Wavelength (nm)" />
                 <ctrl:EntryDone
-                       Text="{Binding peakWavelength}" 
+                       Text="{Binding peakWavelength, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryPeakWavelength_Completed"
                        Keyboard="Numeric" />
             </FlexLayout>
@@ -53,11 +46,10 @@
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Wavenumber (cm⁻¹)" />
                 <ctrl:EntryDoneNegative
-                       Text="{Binding peakWavenumber}" 
+                       Text="{Binding peakWavenumber, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Focused="entry_Focused"
                        Completed="entryPeakWavenumber_Completed"
                        Keyboard="Numeric" />
             </FlexLayout>
