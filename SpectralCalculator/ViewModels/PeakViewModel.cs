@@ -1,6 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 using SpectralCalculator.Models;
 
@@ -10,9 +13,12 @@ namespace SpectralCalculator.ViewModels
     {
         public PeakViewModel()
         {
+            openWebsite = new Command(async () => await Browser.OpenAsync("https://wasatchphotonics.com"));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ICommand openWebsite { get; }
 
         public string Title
         {
