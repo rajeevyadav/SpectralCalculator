@@ -13,12 +13,12 @@ namespace SpectralCalculator.ViewModels
     {
         RangeModel rm = new RangeModel();
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public RangeViewModel()
         {
             openWebsite = new Command(async () => await Browser.OpenAsync("https://wasatchphotonics.com"));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand openWebsite { get; }
 
@@ -32,7 +32,6 @@ namespace SpectralCalculator.ViewModels
             get => rm.laserWavelength;
             private set
             {
-                Console.WriteLine($"RVM.laserWavelength = {value}");
                 rm.laserWavelength = value;
                 OnPropertyChanged();
             }
@@ -43,7 +42,6 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavelengthStart;
             private set
             {
-                Console.WriteLine($"RVM.wavelengthStart = {value}");
                 rm.wavelengthStart = value;
                 OnPropertyChanged();
             }
@@ -54,7 +52,6 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavenumberStart;
             private set
             {
-                Console.WriteLine($"RVM.wavenumberStart = {value}");
                 rm.wavenumberStart = value;
                 OnPropertyChanged();
             }
@@ -65,7 +62,6 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavelengthEnd;
             private set
             {
-                Console.WriteLine($"RVM.wavelengthEnd = {value}");
                 rm.wavelengthEnd = value;
                 OnPropertyChanged();
             }
@@ -76,7 +72,6 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavenumberEnd;
             private set
             {
-                Console.WriteLine($"RVM.wavenumberEnd = {value}");
                 rm.wavenumberEnd = value;
                 OnPropertyChanged();
             }
@@ -87,7 +82,6 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavelengthRange;
             private set
             {
-                Console.WriteLine($"RVM.wavelengthRange = {value}");
                 rm.wavelengthRange = value;
                 OnPropertyChanged();
             }
@@ -98,7 +92,6 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavenumberRange;
             private set
             {
-                Console.WriteLine($"RVM.wavenumberRange = {value}");
                 rm.wavenumberRange = value;
                 OnPropertyChanged();
             }
@@ -110,7 +103,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setLaserWavelength(string s)
         {
-            Console.WriteLine($"RVM.setLaserWavelength -> {s}");
             if (float.TryParse(s, out float value))
             {
                 if (value <= 0)
@@ -128,7 +120,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setWavelengthStart(string s)
         {
-            Console.WriteLine($"RVM.setWavelengthStart -> {s}");
             if (float.TryParse(s, out float value))
             {
                 if (value <= 0)
@@ -149,7 +140,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setWavenumberStart(string s)
         {
-            Console.WriteLine($"RVM.setWavenumberStart -> {s}");
             if (float.TryParse(s, out float value))
             {
                 wavenumberStart = value;
@@ -167,7 +157,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setWavelengthEnd(string s)
         {
-            Console.WriteLine($"RVM.setWavelengthEnd -> {s}");
             if (float.TryParse(s, out float value))
             {
                 if (value <= 0)
@@ -181,7 +170,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setWavenumberEnd(string s)
         {
-            Console.WriteLine($"RVM.setWavenumberEnd -> {s}");
             if (float.TryParse(s, out float value))
             {
                 wavenumberEnd = Math.Max(wavenumberStart, value);
@@ -192,7 +180,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setWavelengthRange(string s)
         {
-            Console.WriteLine($"RVM.setWavelengthRange -> {s}");
             if (float.TryParse(s, out float value))
             {
                 wavelengthEnd = wavelengthStart + value;
@@ -203,7 +190,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setWavenumberRange(string s)
         {
-            Console.WriteLine($"RVM.setWavenumberRange -> {s}");
             if (float.TryParse(s, out float value))
             {
                 wavenumberEnd = wavenumberStart + value;
@@ -235,10 +221,8 @@ namespace SpectralCalculator.ViewModels
 
         void computeWavenumberStart()
         {
-            Console.WriteLine("computeWavenumberStart: start");
             if (laserWavelength > 0 && wavelengthStart > 0)
                 wavenumberStart = SpectralMath.computeWavenumber(laserWavelength, wavelengthStart);
-            Console.WriteLine("computeWavenumberStart: done");
         }
 
         void computeWavenumberEnd()

@@ -13,12 +13,12 @@ namespace SpectralCalculator.ViewModels
     {
         PeakModel pm = new PeakModel();
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public PeakViewModel()
         {
             openWebsite = new Command(async () => await Browser.OpenAsync("https://wasatchphotonics.com"));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand openWebsite { get; }
 
@@ -32,7 +32,6 @@ namespace SpectralCalculator.ViewModels
             get => pm.laserWavelength;
             private set
             {
-                Console.WriteLine($"PVM.laserWavelength = {value}");
                 pm.laserWavelength = value;
                 OnPropertyChanged();
             }
@@ -43,7 +42,6 @@ namespace SpectralCalculator.ViewModels
             get => pm.peakWavelength;
             private set
             {
-                Console.WriteLine($"PVM.peakWavelength = {value}");
                 pm.peakWavelength = value;
                 OnPropertyChanged();
             }
@@ -54,7 +52,6 @@ namespace SpectralCalculator.ViewModels
             get => pm.peakWavenumber;
             private set
             {
-                Console.WriteLine($"PVM.peakWavenumber = {value}");
                 pm.peakWavenumber = value;
                 OnPropertyChanged();
             }
@@ -66,7 +63,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setLaserWavelength(string s)
         {
-            Console.WriteLine($"PVM.setLaserWavelength -> {s}");
             if (float.TryParse(s, out float value))
             {
                 if (value <= 0)
@@ -83,7 +79,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setPeakWavelength(string s)
         {
-            Console.WriteLine($"PVM.setPeakWavelength -> {s}");
             if (float.TryParse(s, out float value))
             {
                 if (value <= 0)
@@ -96,7 +91,6 @@ namespace SpectralCalculator.ViewModels
 
         public void setPeakWavenumber(string s)
         {
-            Console.WriteLine($"PVM.setPeakWavenumber -> {s}");
             if (float.TryParse(s, out float value))
             {
                 peakWavenumber = value;

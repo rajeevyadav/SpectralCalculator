@@ -1,8 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 using SpectralCalculator.ViewModels;
 
 namespace SpectralCalculator.Views
@@ -17,9 +14,9 @@ namespace SpectralCalculator.Views
             pvm = (PeakViewModel)BindingContext;
         }
 
-        // the user closed an Entry keyboard, so relay the value
+        // the user clicked "Done" on an Entry keyboard, so relay the value
         void entryLaserWavelength_Completed(Object sender, EventArgs e) => pvm.setLaserWavelength((sender as Entry).Text);
-        void entryPeakWavelength_Completed(Object sender, EventArgs e) => pvm.setPeakWavelength((sender as Entry).Text);
-        void entryPeakWavenumber_Completed(Object sender, EventArgs e) => pvm.setPeakWavenumber((sender as Entry).Text);
+        void entryPeakWavelength_Completed (Object sender, EventArgs e) => pvm.setPeakWavelength ((sender as Entry).Text);
+        void entryPeakWavenumber_Completed (Object sender, EventArgs e) => pvm.setPeakWavenumber ((sender as Entry).Text);
     }
 }

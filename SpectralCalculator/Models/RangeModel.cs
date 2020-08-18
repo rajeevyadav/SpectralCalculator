@@ -1,5 +1,4 @@
-﻿using System;
-namespace SpectralCalculator.Models
+﻿namespace SpectralCalculator.Models
 {
     public class RangeModel
     {
@@ -10,9 +9,5 @@ namespace SpectralCalculator.Models
         public double wavenumberStart;
         public double wavenumberEnd;
         public double wavenumberRange;
-
-        public RangeModel()
-        {
-        }
     }
 }

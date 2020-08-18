@@ -1,5 +1,4 @@
-﻿using System;
-namespace SpectralCalculator.Models
+﻿namespace SpectralCalculator.Models
 {
     public class SpectralMath
     {
