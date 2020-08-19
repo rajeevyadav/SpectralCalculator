@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="SpectralCalculator.Views.RangePage" 
+             x:Class="SpectralCalculator.Views.WidthPage" 
              Title="{Binding Title}" 
              xmlns:ctrl="clr-namespace:SpectralCalculator.Controls" 
              xmlns:vm="clr-namespace:SpectralCalculator.ViewModels">
 
     <ContentPage.BindingContext>
-        <vm:RangeViewModel />
+        <vm:WidthViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView Margin="10, 10, 10, 10">
@@ -22,9 +22,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition /> <!-- Laser (nm)[_________] -->
                     <RowDefinition /> <!--            nm    cm-1 -->
-                    <RowDefinition /> <!-- Start     [___] [___] -->
-                    <RowDefinition /> <!-- End       [___] [___] -->
-                    <RowDefinition /> <!-- Range     [___] [___] -->
+                    <RowDefinition /> <!-- Peak      [___] [___] -->
+                    <RowDefinition /> <!-- Width     [___] [___] -->
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -48,14 +47,14 @@
                 <Label Text="ṽ (cm⁻¹)" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" VerticalTextAlignment="End"/>
 
                 <!-- Row 2 -->
-                <Label Text="Start" Grid.Row="2" Grid.Column="0"/>
+                <Label Text="Peak" Grid.Row="2" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="2" Grid.Column="1"
                        Text="{Binding wavelengthStart, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Unfocused="entryWavelengthStart_Completed"
+                       Unfocused="entryPeakWavelength_Completed"
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="2" Grid.Column="2"
@@ -63,18 +62,18 @@
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Unfocused="entryWavenumberStart_Completed"
+                       Unfocused="entryPeakWavenumber_Completed"
                        Keyboard="Numeric" />
 
                 <!-- Row 3 -->
-                <Label Text="End" Grid.Row="3" Grid.Column="0"/>
+                <Label Text="Width" Grid.Row="3" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="3" Grid.Column="1"
                        Text="{Binding wavelengthEnd, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Unfocused="entryWavelengthEnd_Completed"
+                       Unfocused="entryPeakWidthNM_Completed"
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="3" Grid.Column="2"
@@ -82,26 +81,7 @@
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Unfocused="entryWavenumberEnd_Completed"
-                       Keyboard="Numeric" />
-
-                <!-- Row 4 -->
-                <Label Text="Range" Grid.Row="4" Grid.Column="0"/>
-                <ctrl:EntryDone
-                       Grid.Row="4" Grid.Column="1"
-                       Text="{Binding wavelengthRange, StringFormat='{0:f3}'}" 
-                       HorizontalTextAlignment="Center"
-                       WidthRequest="100"
-                       ReturnType="Done"
-                       Unfocused="entryWavelengthRange_Completed"
-                       Keyboard="Numeric" />
-                <ctrl:EntryDoneNegative
-                       Grid.Row="4" Grid.Column="2"
-                       Text="{Binding wavenumberRange, StringFormat='{0:f3}'}" 
-                       HorizontalTextAlignment="Center"
-                       WidthRequest="100"
-                       ReturnType="Done"
-                       Unfocused="entryWavenumberRange_Completed"
+                       Unfocused="entryPeakWidthCM_Completed"
                        Keyboard="Numeric" />
             </Grid>
         </StackLayout>

@@ -16,6 +16,7 @@
                          x:Name="logo"
                          Command="{Binding openWebsite}"
                          HorizontalOptions="CenterAndExpand" 
+                         HeightRequest="100"
                          Margin="0, 10, 0, 0" />
 
             <!-- Laser Wavelength --> 
@@ -26,7 +27,7 @@
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Completed="entryLaserWavelength_Completed"
+                       Unfocused="entryLaserWavelength_Completed"
                        Keyboard="Numeric" />
             </FlexLayout>
 
@@ -38,7 +39,7 @@
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Completed="entryPeakWavelength_Completed"
+                       Unfocused="entryPeakWavelength_Completed"
                        Keyboard="Numeric" />
             </FlexLayout>
 
@@ -50,7 +51,7 @@
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
-                       Completed="entryPeakWavenumber_Completed"
+                       Unfocused="entryPeakWavenumber_Completed"
                        Keyboard="Numeric" />
             </FlexLayout>
 
@@ -58,10 +59,16 @@
             <Label Text="Equations" FontAttributes="Bold"/>
 
             <Label Text="Convert Raman shift (ṽ cm⁻¹) to wavelength (nm):"/>
-            <Image Source="to_wavelength" HorizontalOptions="CenterAndExpand" Margin="20, 20, 20, 20"/>
+            <Image Source="to_wavelength" 
+                   HorizontalOptions="CenterAndExpand" 
+                   HeightRequest="125"
+                   Margin="20, 20, 20, 20" />
 
             <Label Text="Convert λ (nm) to Raman shift (cm⁻¹):"/>
-            <Image Source="to_wavenumber" HorizontalOptions="CenterAndExpand" Margin="20, 20, 20, 20"/>
+            <Image Source="to_wavenumber" 
+                   HorizontalOptions="CenterAndExpand" 
+                   HeightRequest="125"
+                   Margin="20, 20, 20, 20"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

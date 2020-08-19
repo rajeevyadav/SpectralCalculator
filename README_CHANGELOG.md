@@ -1,7 +1,12 @@
 # Changelog
 
+- 2020-08-19 1.0.1
+    - changed Completed Entry events to Unfocused
+    - fixed image sizing
+    - tweaked table layout
 - 2020-08-18 1.0.0
     - initial Google Play store release
+    - initial Apple store release
 - 2020-08-17 0.0.3
     - works on Android
 - 2020-08-17 0.0.2

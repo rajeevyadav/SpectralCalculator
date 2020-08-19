@@ -77,15 +77,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="Resources\tab_about.png" />
-    <BundleResource Include="Resources\tab_about%402x.png" />
-    <BundleResource Include="Resources\tab_about%403x.png" />
-    <BundleResource Include="Resources\tab_feed.png" />
-    <BundleResource Include="Resources\tab_feed%402x.png" />
-    <BundleResource Include="Resources\tab_feed%403x.png" />
-    <BundleResource Include="Resources\xamarin_logo.png" />
-    <BundleResource Include="Resources\xamarin_logo%402x.png" />
-    <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\wp_logo.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\wp_logo.imageset\wp-logo-1000.png" />
@@ -159,5 +150,16 @@
     <Folder Include="Assets.xcassets\wp_logo.imageset\" />
     <Folder Include="Assets.xcassets\to_wavelength.imageset\" />
     <Folder Include="Assets.xcassets\to_wavenumber.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\peak_tab.png" />
+    <BundleResource Include="Resources\peak_tab%402x.png" />
+    <BundleResource Include="Resources\peak_tab%403x.png" />
+    <BundleResource Include="Resources\range_tab.png" />
+    <BundleResource Include="Resources\range_tab%402x.png" />
+    <BundleResource Include="Resources\range_tab%403x.png" />
+    <BundleResource Include="Resources\width_tab.png" />
+    <BundleResource Include="Resources\width_tab%402x.png" />
+    <BundleResource Include="Resources\width_tab%403x.png" />
   </ItemGroup>
 </Project>
