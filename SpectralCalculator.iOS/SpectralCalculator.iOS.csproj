@@ -82,8 +82,6 @@
     <ImageAsset Include="Assets.xcassets\wp_logo.imageset\wp-logo-1000.png" />
     <ImageAsset Include="Assets.xcassets\to_wavelength.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\to_wavenumber.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\to_wavenumber.imageset\to_wavenumber.png" />
-    <ImageAsset Include="Assets.xcassets\to_wavelength.imageset\to_wavelength.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-1.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
@@ -125,6 +123,12 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\512-1.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024-2.png" />
+    <ImageAsset Include="Assets.xcassets\to_wavelength.imageset\to_wavelength.png" />
+    <ImageAsset Include="Assets.xcassets\to_wavenumber.imageset\to_wavenumber.png" />
+    <ImageAsset Include="Assets.xcassets\to_wavenumber.imageset\to_wavenumber_dark.png" />
+    <ImageAsset Include="Assets.xcassets\to_wavelength.imageset\to_wavelength_dark.png" />
+    <ImageAsset Include="Assets.xcassets\to_wavelength.imageset\to_wavelength-1.png" />
+    <ImageAsset Include="Assets.xcassets\to_wavenumber.imageset\to_wavenumber-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

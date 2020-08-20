@@ -2,6 +2,7 @@
 
 - 2020-08-20 1.0.2
     - added animation
+    - support Dark Mode
 - 2020-08-19 1.0.1
     - changed Completed Entry events to Unfocused
     - fixed image sizing

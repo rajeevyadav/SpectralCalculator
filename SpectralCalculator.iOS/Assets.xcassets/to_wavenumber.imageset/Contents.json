@@ -4,7 +4,7 @@
       "idiom": "universal"
     },
     {
-      "filename": "to_wavenumber.png",
+      "filename": "to_wavenumber-1.png",
       "scale": "1x",
       "idiom": "universal"
     },
@@ -96,6 +96,7 @@
       "idiom": "universal"
     },
     {
+      "filename": "to_wavenumber_dark.png",
       "appearances": [
         {
           "appearance": "luminosity",
@@ -313,6 +314,7 @@
       "idiom": "universal"
     },
     {
+      "filename": "to_wavenumber.png",
       "appearances": [
         {
           "appearance": "luminosity",

@@ -4,7 +4,9 @@
              x:Class="SpectralCalculator.Views.PeakPage" 
              xmlns:vm="clr-namespace:SpectralCalculator.ViewModels" 
              xmlns:ctrl="clr-namespace:SpectralCalculator.Controls" 
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}"
+             >
 
     <ContentPage.BindingContext>
         <vm:PeakViewModel />
@@ -62,13 +64,13 @@
             <Label Text="Equations" FontAttributes="Bold"/>
 
             <Label Text="Convert Raman shift (ṽ cm⁻¹) to wavelength (nm):"/>
-            <Image Source="to_wavelength" 
+            <Image Source="to_wavelength"
                    HorizontalOptions="CenterAndExpand" 
                    HeightRequest="125"
                    Margin="20, 20, 20, 20" />
 
             <Label Text="Convert λ (nm) to Raman shift (cm⁻¹):"/>
-            <Image Source="to_wavenumber" 
+            <Image Source="to_wavenumber"
                    HorizontalOptions="CenterAndExpand" 
                    HeightRequest="125"
                    Margin="20, 20, 20, 20"/>

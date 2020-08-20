@@ -2,21 +2,37 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SpectralCalculator.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#27c0a1</Color>
+            <!-- Light colors -->
+            <Color x:Key="LightThemeBackgroundColor">#27c0a1</Color>
+            <Color x:Key="LightThemeForegroundColor">Yellow</Color>
+            <Color x:Key="LightBackgroundColor">White</Color>
+            <Color x:Key="LightTextColor">White</Color>
+
+            <!-- Dark colors -->
+            <Color x:Key="DarkThemeBackgroundColor">#0c725d</Color>
+            <Color x:Key="DarkThemeForegroundColor">DarkRed</Color>
+            <Color x:Key="DarkBackgroundColor">#333</Color>
+            <Color x:Key="DarkTextColor">Yellow</Color>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}"> </Setter>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}"> </Setter>
+            </Style>
+
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}">
                 </Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightThemeBackgroundColor}, Dark={StaticResource DarkThemeBackgroundColor}}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                    <Setter Property="BackgroundColor" Value="#3327c0a1" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>

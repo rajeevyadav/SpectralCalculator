@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="SpectralCalculator.Views.RangePage" 
              Title="{Binding Title}" 
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackgroundColor}, Dark={StaticResource DarkBackgroundColor}}"
              xmlns:ctrl="clr-namespace:SpectralCalculator.Controls" 
              xmlns:vm="clr-namespace:SpectralCalculator.ViewModels">
 

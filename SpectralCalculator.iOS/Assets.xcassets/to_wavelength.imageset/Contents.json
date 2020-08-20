@@ -4,7 +4,7 @@
       "idiom": "universal"
     },
     {
-      "filename": "to_wavelength.png",
+      "filename": "to_wavelength-1.png",
       "scale": "1x",
       "idiom": "universal"
     },
@@ -96,6 +96,7 @@
       "idiom": "universal"
     },
     {
+      "filename": "to_wavelength_dark.png",
       "appearances": [
         {
           "appearance": "luminosity",
@@ -313,6 +314,7 @@
       "idiom": "universal"
     },
     {
+      "filename": "to_wavelength.png",
       "appearances": [
         {
           "appearance": "luminosity",
