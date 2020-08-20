@@ -54,4 +54,8 @@ Global
 		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		description = Raman calculator for computing wavenumber shifts, ranges and widths
+		version = 1.1
+	EndGlobalSection
 EndGlobal

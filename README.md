@@ -9,11 +9,6 @@ with Raman shifts.
 - Android: https://play.google.com/store/apps/details?id=com.wasatchphotonics.spectral_calculator
 - Apple: https://apps.apple.com/app/id1528209782
 
-# Backlog
-
-- fix Dark Mode images on Android
-
 # Changelog
 
 - see [Changelog](README_CHANGELOG.md)
-

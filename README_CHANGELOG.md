@@ -1,5 +1,8 @@
 # Changelog
 
+- 2020-08-20 1.1.0
+    - kludged around dark-mode images in Android Peak View
+    - resubmitted to TestFlight
 - 2020-08-20 1.0.2
     - added animation
     - support Dark Mode
