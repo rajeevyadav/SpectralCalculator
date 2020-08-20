@@ -36,6 +36,7 @@
                 <Label Grid.Row="0" Grid.Column="0" Text="Laser (nm)" />
                 <ctrl:EntryDone
                        Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                       x:Name="laserWavelength" 
                        Text="{Binding laserWavelength, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="250"
@@ -51,6 +52,7 @@
                 <Label Text="Start" Grid.Row="2" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="2" Grid.Column="1"
+                       x:Name="wavelengthStart" 
                        Text="{Binding wavelengthStart, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -59,6 +61,7 @@
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="2" Grid.Column="2"
+                       x:Name="wavenumberStart" 
                        Text="{Binding wavenumberStart, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -70,6 +73,7 @@
                 <Label Text="End" Grid.Row="3" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="3" Grid.Column="1"
+                       x:Name="wavelengthEnd" 
                        Text="{Binding wavelengthEnd, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -78,6 +82,7 @@
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="3" Grid.Column="2"
+                       x:Name="wavenumberEnd" 
                        Text="{Binding wavenumberEnd, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -89,6 +94,7 @@
                 <Label Text="Range" Grid.Row="4" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="4" Grid.Column="1"
+                       x:Name="wavelengthRange" 
                        Text="{Binding wavelengthRange, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -97,6 +103,7 @@
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="4" Grid.Column="2"
+                       x:Name="wavenumberRange" 
                        Text="{Binding wavenumberRange, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"

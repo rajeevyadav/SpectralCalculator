@@ -7,11 +7,20 @@ namespace SpectralCalculator.Views
     public partial class RangePage : ContentPage
     {
         RangeViewModel rvm;
+        AnimatedEntries animatedEntries = new AnimatedEntries();
 
         public RangePage()
         {
             InitializeComponent();
             rvm = (RangeViewModel)BindingContext;
+            rvm.PropertyChanged += animatedEntries.onPropertyChanged;
+            animatedEntries.add("laserWavelength", laserWavelength);
+            animatedEntries.add("wavelengthStart", wavelengthStart);
+            animatedEntries.add("wavenumberStart", wavenumberStart);
+            animatedEntries.add("wavelengthEnd",   wavelengthEnd);
+            animatedEntries.add("wavenumberEnd",   wavenumberEnd);
+            animatedEntries.add("wavelengthRange", wavelengthRange);
+            animatedEntries.add("wavenumberRange", wavenumberRange);
         }
 
         // the user clicked "Done" on an Entry keyboard, so relay the value

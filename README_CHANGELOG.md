@@ -1,9 +1,13 @@
 # Changelog
 
+- 2020-08-20 1.0.2
+    - added animation
 - 2020-08-19 1.0.1
     - changed Completed Entry events to Unfocused
     - fixed image sizing
     - tweaked table layout
+    - added Peak Width tab
+    - replaced tab icons
 - 2020-08-18 1.0.0
     - initial Google Play store release
     - initial Apple store release

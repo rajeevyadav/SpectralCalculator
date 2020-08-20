@@ -1,26 +1,20 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-
-using SpectralCalculator.Models;
+﻿using SpectralCalculator.Models;
 
 namespace SpectralCalculator.ViewModels
 {
-    public class PeakViewModel : INotifyPropertyChanged
+    public class PeakViewModel : BaseViewModel
     {
         PeakModel pm = new PeakModel();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public PeakViewModel()
+        public PeakViewModel() : base()
         {
-            openWebsite = new Command(async () => await Browser.OpenAsync("https://wasatchphotonics.com"));
         }
 
-        public ICommand openWebsite { get; }
+        ////////////////////////////////////////////////////////////////////////
+        // Properties
+        ////////////////////////////////////////////////////////////////////////
+
+        // note we try to avoid issuing needless notifications and animations
 
         public string Title
         {
@@ -32,8 +26,10 @@ namespace SpectralCalculator.ViewModels
             get => pm.laserWavelength;
             private set
             {
+                var notify = visiblyChanged(pm.laserWavelength, value);
                 pm.laserWavelength = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -42,8 +38,10 @@ namespace SpectralCalculator.ViewModels
             get => pm.peakWavelength;
             private set
             {
+                var notify = visiblyChanged(pm.peakWavelength, value);
                 pm.peakWavelength = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -52,14 +50,18 @@ namespace SpectralCalculator.ViewModels
             get => pm.peakWavenumber;
             private set
             {
+                var notify = visiblyChanged(pm.peakWavenumber, value);
                 pm.peakWavenumber = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
         ////////////////////////////////////////////////////////////////////////
         // accept keyboard "completed" events from View code-behind
         ////////////////////////////////////////////////////////////////////////
+
+        // note we don't call Property settors unless we want animation to fire
 
         public void setLaserWavelength(string s)
         {
@@ -68,12 +70,8 @@ namespace SpectralCalculator.ViewModels
                 if (value <= 0)
                     return;
 
-                laserWavelength = value;
-
-                if (peakWavelength > 0)
-                    computePeakWavenumber();
-                else
-                    computePeakWavelength();
+                pm.laserWavelength = value;
+                computePeakWavelength();
             }
         }
 
@@ -84,7 +82,7 @@ namespace SpectralCalculator.ViewModels
                 if (value <= 0)
                     return;
 
-                peakWavelength = value;
+                pm.peakWavelength = value;
                 computePeakWavenumber();
             }
         }
@@ -93,7 +91,7 @@ namespace SpectralCalculator.ViewModels
         {
             if (float.TryParse(s, out float value))
             {
-                peakWavenumber = value;
+                pm.peakWavenumber = value;
                 computePeakWavelength();
             }
         }
@@ -117,12 +115,5 @@ namespace SpectralCalculator.ViewModels
 
             peakWavelength = SpectralMath.computeWavelength(laserWavelength, peakWavenumber);
         }
-
-        ////////////////////////////////////////////////////////////////////////
-        // Notifications
-        ////////////////////////////////////////////////////////////////////////
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "") =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

@@ -50,7 +50,8 @@
                 <Label Text="Peak" Grid.Row="2" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="2" Grid.Column="1"
-                       Text="{Binding wavelengthStart, StringFormat='{0:f3}'}" 
+                       x:Name="peakWavelength"
+                       Text="{Binding peakWavelength, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
@@ -58,7 +59,8 @@
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="2" Grid.Column="2"
-                       Text="{Binding wavenumberStart, StringFormat='{0:f3}'}" 
+                       x:Name="peakWavenumber"
+                       Text="{Binding peakWavenumber, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
@@ -69,7 +71,8 @@
                 <Label Text="Width" Grid.Row="3" Grid.Column="0"/>
                 <ctrl:EntryDone
                        Grid.Row="3" Grid.Column="1"
-                       Text="{Binding wavelengthEnd, StringFormat='{0:f3}'}" 
+                       x:Name="peakWidthNM"
+                       Text="{Binding peakWidthNM, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"
@@ -77,7 +80,8 @@
                        Keyboard="Numeric" />
                 <ctrl:EntryDoneNegative
                        Grid.Row="3" Grid.Column="2"
-                       Text="{Binding wavenumberEnd, StringFormat='{0:f3}'}" 
+                       x:Name="peakWidthCM"
+                       Text="{Binding peakWidthCM, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
                        ReturnType="Done"

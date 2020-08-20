@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using Xamarin.Forms;
 using SpectralCalculator.ViewModels;
 
@@ -7,11 +9,19 @@ namespace SpectralCalculator.Views
     public partial class WidthPage : ContentPage
     {
         WidthViewModel wvm;
+        AnimatedEntries animatedEntries = new AnimatedEntries();
 
         public WidthPage()
         {
             InitializeComponent();
             wvm = (WidthViewModel)BindingContext;
+
+            // for animations
+            wvm.PropertyChanged += animatedEntries.onPropertyChanged;
+            animatedEntries.add("peakWavelength", peakWavelength);
+            animatedEntries.add("peakWavenumber", peakWavenumber);
+            animatedEntries.add("peakWidthNM", peakWidthNM);
+            animatedEntries.add("peakWidthCM", peakWidthCM);
         }
 
         // the user clicked "Done" on an Entry keyboard, so relay the value

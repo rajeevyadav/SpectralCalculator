@@ -23,6 +23,7 @@
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Laser Wavelength (nm)" />
                 <ctrl:EntryDone
+                       x:Name="laserWavelength"
                        Text="{Binding laserWavelength, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -35,6 +36,7 @@
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Wavelength (nm)" />
                 <ctrl:EntryDone
+                       x:Name="peakWavelength"
                        Text="{Binding peakWavelength, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"
@@ -47,6 +49,7 @@
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Wavenumber (cm⁻¹)" />
                 <ctrl:EntryDoneNegative
+                       x:Name="peakWavenumber"
                        Text="{Binding peakWavenumber, StringFormat='{0:f3}'}" 
                        HorizontalTextAlignment="Center"
                        WidthRequest="100"

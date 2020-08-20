@@ -1,26 +1,21 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-
 using SpectralCalculator.Models;
 
 namespace SpectralCalculator.ViewModels
 {
-    public class RangeViewModel : INotifyPropertyChanged
+    public class RangeViewModel : BaseViewModel
     {
         RangeModel rm = new RangeModel();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public RangeViewModel()
+        public RangeViewModel() : base()
         {
-            openWebsite = new Command(async () => await Browser.OpenAsync("https://wasatchphotonics.com"));
         }
 
-        public ICommand openWebsite { get; }
+        ////////////////////////////////////////////////////////////////////////
+        // Properties
+        ////////////////////////////////////////////////////////////////////////
+
+        // note we try to avoid issuing needless notifications and animations
 
         public string Title
         {
@@ -32,8 +27,10 @@ namespace SpectralCalculator.ViewModels
             get => rm.laserWavelength;
             private set
             {
+                var notify = visiblyChanged(rm.laserWavelength, value);
                 rm.laserWavelength = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -42,8 +39,10 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavelengthStart;
             private set
             {
+                var notify = visiblyChanged(rm.wavelengthStart, value);
                 rm.wavelengthStart = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -52,8 +51,10 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavenumberStart;
             private set
             {
+                var notify = visiblyChanged(rm.wavenumberStart, value);
                 rm.wavenumberStart = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -62,8 +63,10 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavelengthEnd;
             private set
             {
+                var notify = visiblyChanged(rm.wavelengthEnd, value);
                 rm.wavelengthEnd = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -72,8 +75,10 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavenumberEnd;
             private set
             {
+                var notify = visiblyChanged(rm.wavenumberEnd, value);
                 rm.wavenumberEnd = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -82,8 +87,10 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavelengthRange;
             private set
             {
+                var notify = visiblyChanged(rm.wavelengthRange, value);
                 rm.wavelengthRange = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -92,14 +99,18 @@ namespace SpectralCalculator.ViewModels
             get => rm.wavenumberRange;
             private set
             {
+                var notify = visiblyChanged(rm.wavelengthRange, value);
                 rm.wavenumberRange = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
         ////////////////////////////////////////////////////////////////////////
         // accept keyboard "completed" events from View code-behind
         ////////////////////////////////////////////////////////////////////////
+
+        // note we don't call Property settors unless we want animation to fire
 
         public void setLaserWavelength(string s)
         {
@@ -108,7 +119,7 @@ namespace SpectralCalculator.ViewModels
                 if (value <= 0)
                     return;
 
-                laserWavelength = value;
+                rm.laserWavelength = value;
 
                 // leave the wavenumber column static, and recompute wavelengths
                 // from wavenumbers
@@ -125,7 +136,7 @@ namespace SpectralCalculator.ViewModels
                 if (value <= 0)
                     return;
 
-                wavelengthStart = value;
+                rm.wavelengthStart = value;
                 computeWavenumberStart();
 
                 if (wavelengthEnd < wavelengthStart)
@@ -142,7 +153,7 @@ namespace SpectralCalculator.ViewModels
         {
             if (float.TryParse(s, out float value))
             {
-                wavenumberStart = value;
+                rm.wavenumberStart = value;
                 computeWavelengthStart();
 
                 if (wavenumberEnd < wavenumberStart)
@@ -162,7 +173,9 @@ namespace SpectralCalculator.ViewModels
                 if (value <= 0)
                     return;
 
-                wavelengthEnd = Math.Max(wavelengthStart, value);
+                rm.wavelengthEnd = value;
+                if (wavelengthEnd < wavelengthStart)
+                    wavelengthEnd = wavelengthStart;
                 computeWavenumberEnd();
                 computeRanges();
             }
@@ -172,7 +185,9 @@ namespace SpectralCalculator.ViewModels
         {
             if (float.TryParse(s, out float value))
             {
-                wavenumberEnd = Math.Max(wavenumberStart, value);
+                rm.wavenumberEnd = value;
+                if (wavenumberEnd < wavenumberStart)
+                    wavenumberEnd = wavenumberStart;
                 computeWavelengthEnd();
                 computeRanges();
             }
@@ -241,12 +256,5 @@ namespace SpectralCalculator.ViewModels
             computeWavelengthRange();
             computeWavenumberRange();
         }
-
-        ////////////////////////////////////////////////////////////////////////
-        // Notifications
-        ////////////////////////////////////////////////////////////////////////
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "") =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

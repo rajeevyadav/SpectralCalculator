@@ -1,26 +1,21 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-
 using SpectralCalculator.Models;
 
 namespace SpectralCalculator.ViewModels
 {
-    public class WidthViewModel : INotifyPropertyChanged
+    public class WidthViewModel : BaseViewModel
     {
         WidthModel wm = new WidthModel();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public WidthViewModel()
+        public WidthViewModel() : base()
         {
-            openWebsite = new Command(async () => await Browser.OpenAsync("https://wasatchphotonics.com"));
         }
 
-        public ICommand openWebsite { get; }
+        ////////////////////////////////////////////////////////////////////////
+        // Properties
+        ////////////////////////////////////////////////////////////////////////
+
+        // note we try to avoid issuing needless notifications and animations
 
         public string Title
         {
@@ -32,8 +27,10 @@ namespace SpectralCalculator.ViewModels
             get => wm.laserWavelength;
             private set
             {
+                var notify = visiblyChanged(wm.laserWavelength, value);
                 wm.laserWavelength = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -42,8 +39,10 @@ namespace SpectralCalculator.ViewModels
             get => wm.peakWavelength;
             private set
             {
+                var notify = visiblyChanged(wm.peakWavelength, value);
                 wm.peakWavelength = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -52,8 +51,10 @@ namespace SpectralCalculator.ViewModels
             get => wm.peakWavenumber;
             private set
             {
-                wm.peakWavenumber= value;
-                OnPropertyChanged();
+                var notify = visiblyChanged(wm.peakWavenumber, value);
+                wm.peakWavenumber = value;
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -62,8 +63,10 @@ namespace SpectralCalculator.ViewModels
             get => wm.peakWidthNM;
             private set
             {
+                var notify = visiblyChanged(wm.peakWidthNM, value);
                 wm.peakWidthNM = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -72,8 +75,10 @@ namespace SpectralCalculator.ViewModels
             get => wm.peakWidthCM;
             private set
             {
+                var notify = visiblyChanged(wm.peakWidthCM, value);
                 wm.peakWidthCM = value;
-                OnPropertyChanged();
+                if (notify)
+                    OnPropertyChanged();
             }
         }
 
@@ -88,7 +93,7 @@ namespace SpectralCalculator.ViewModels
                 if (value <= 0)
                     return;
 
-                laserWavelength = value;
+                wm.laserWavelength = value;
 
                 if (peakWavenumber != 0)
                     computePeakWavelength();
@@ -106,7 +111,7 @@ namespace SpectralCalculator.ViewModels
                 if (value <= 0)
                     return;
 
-                peakWavelength = value;
+                wm.peakWavelength = value;
                 computePeakWavenumber();
                 computeWidths();
             }
@@ -116,7 +121,7 @@ namespace SpectralCalculator.ViewModels
         {
             if (float.TryParse(s, out float value))
             {
-                peakWavenumber = value;
+                wm.peakWavenumber = value;
                 computePeakWavelength();
                 computeWidths();
             }
@@ -125,13 +130,13 @@ namespace SpectralCalculator.ViewModels
         public void setPeakWidthNM(string s)
         {
             if (float.TryParse(s, out float value))
-                computeWidthCM(peakWidthNM = value);
+                computeWidthCM(wm.peakWidthNM = value);
         }
 
         public void setPeakWidthCM(string s)
         {
             if (float.TryParse(s, out float value))
-                computeWidthNM(peakWidthCM = value);
+                computeWidthNM(wm.peakWidthCM = value);
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -179,12 +184,5 @@ namespace SpectralCalculator.ViewModels
             else if (peakWidthNM > 0)
                 computeWidthCM(peakWidthNM);
         }
-
-        ////////////////////////////////////////////////////////////////////////
-        // Notifications
-        ////////////////////////////////////////////////////////////////////////
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "") =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
