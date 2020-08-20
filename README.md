@@ -11,7 +11,7 @@ with Raman shifts.
 
 # Backlog
 
-- handle Dark Mode on iOS
+- fix Dark Mode images on Android
 
 # Changelog
 
