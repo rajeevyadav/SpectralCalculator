@@ -64,16 +64,40 @@
             <Label Text="Equations" FontAttributes="Bold"/>
 
             <Label Text="Convert Raman shift (ṽ cm⁻¹) to wavelength (nm):"/>
-            <Image Source="to_wavelength"
-                   HorizontalOptions="CenterAndExpand" 
-                   HeightRequest="125"
-                   Margin="20, 20, 20, 20" />
+            <ContentView>
+                <OnPlatform x:TypeArguments="View">
+                    <OnPlatform.iOS>
+                        <Image Source="to_wavelength"
+                               HorizontalOptions="CenterAndExpand" 
+                               HeightRequest="125"
+                               Margin="20, 20, 20, 20" />
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>
+                        <Image Source="{AppThemeBinding Light=to_wavelength, Dark=to_wavelength_dark}"
+                               HorizontalOptions="CenterAndExpand" 
+                               HeightRequest="125"
+                               Margin="20, 20, 20, 20" />
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </ContentView>
 
             <Label Text="Convert λ (nm) to Raman shift (cm⁻¹):"/>
-            <Image Source="to_wavenumber"
-                   HorizontalOptions="CenterAndExpand" 
-                   HeightRequest="125"
-                   Margin="20, 20, 20, 20"/>
+            <ContentView>
+                <OnPlatform x:TypeArguments="View">
+                    <OnPlatform.iOS>
+                        <Image Source="to_wavenumber"
+                               HorizontalOptions="CenterAndExpand" 
+                               HeightRequest="125"
+                               Margin="20, 20, 20, 20" />
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>
+                        <Image Source="{AppThemeBinding Light=to_wavenumber, Dark=to_wavenumber_dark}"
+                               HorizontalOptions="CenterAndExpand" 
+                               HeightRequest="125"
+                               Margin="20, 20, 20, 20" />
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </ContentView>
         </StackLayout>
     </ScrollView>
 </ContentPage>
