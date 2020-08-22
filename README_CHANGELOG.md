@@ -2,6 +2,7 @@
 
 - 2020-08-?? 1.2.0
     - added "Explain this"
+    - added source link
 - 2020-08-20 1.1.0
     - kludged around dark-mode images in Android Peak View
     - resubmitted to TestFlight

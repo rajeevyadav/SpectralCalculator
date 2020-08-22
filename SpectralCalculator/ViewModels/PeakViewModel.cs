@@ -1,4 +1,8 @@
-﻿using SpectralCalculator.Models;
+﻿using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+
+using SpectralCalculator.Models;
 
 namespace SpectralCalculator.ViewModels
 {
@@ -8,7 +12,10 @@ namespace SpectralCalculator.ViewModels
 
         public PeakViewModel() : base()
         {
+            sourceCommand = new Command(async () => await Browser.OpenAsync("https://github.com/WasatchPhotonics/SpectralCalculator"));
         }
+
+        public ICommand sourceCommand { get; }
 
         ////////////////////////////////////////////////////////////////////////
         // Properties
@@ -143,17 +150,17 @@ namespace SpectralCalculator.ViewModels
 
                 return string.Format(
                     "<div style=\"font-family: sans-serif; font-size: x-large\">" +
-                    "<p>Every wavelength has an <b>absolute wavenumber</b>, expressed in " +
+                    "<p>Every wavelength (λ) has an <b>absolute wavenumber</b>, expressed in " +
                     "inverse centimeters (1/cm, or cm⁻¹).  This is literally the number " +
-                    "of <i>waves</i> of the given <i>wave-length</i> which, if laid end-to-end, would " +
-                    "'fit' in one centimeter.  For instance, if a photon had a wavelength " +
+                    "of <i>waves</i> of the given <i>wave length</i> which, if laid end-to-end, would " +
+                    "\"fit\" in one centimeter.  For instance, if a photon had a wavelength " +
                     "of 1000nm (1µm), its absolute wavenumber would be 10,000, because " +
                     "10,000 × 1µm = 1cm.</p>" +
 
                    $"<p>The <i>absolute wavenumber</i> of a {pm.laserWavelength:f2}nm laser " +
                    $"is {laserAbsCM:f2}cm⁻¹.  Similarly, the <i>absolute wavenumber</i> of " +
                    $"the peak wavelength {pm.peakWavelength:f2}nm is {peakAbsCM:f2}cm⁻¹. Therefore, " +
-                    "The <b>Raman shift in wavenumbers</b> for that peak, at that excitation, " +
+                    "The <b>Raman shift in wavenumbers</b> (ṽ) for that peak, at that excitation, " +
                    $"would be {laserAbsCM:f2} - {peakAbsCM:f2} = {pm.peakWavenumber:f2}cm⁻¹.</p>" +
                     "</div>"
                 );

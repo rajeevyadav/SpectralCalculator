@@ -79,13 +79,13 @@
                         <Image Source="to_wavelength"
                                HorizontalOptions="CenterAndExpand" 
                                HeightRequest="125"
-                               Margin="20, 20, 20, 20" />
+                               Margin="20, 10, 20, 20" />
                     </OnPlatform.iOS>
                     <OnPlatform.Android>
                         <Image Source="{AppThemeBinding Light=to_wavelength, Dark=to_wavelength_dark}"
                                HorizontalOptions="CenterAndExpand" 
                                HeightRequest="125"
-                               Margin="20, 20, 20, 20" />
+                               Margin="20, 10, 20, 20" />
                     </OnPlatform.Android>
                 </OnPlatform>
             </ContentView>
@@ -97,16 +97,23 @@
                         <Image Source="to_wavenumber"
                                HorizontalOptions="CenterAndExpand" 
                                HeightRequest="125"
-                               Margin="20, 20, 20, 20" />
+                               Margin="20, 0, 20, 0" />
                     </OnPlatform.iOS>
                     <OnPlatform.Android>
                         <Image Source="{AppThemeBinding Light=to_wavenumber, Dark=to_wavenumber_dark}"
                                HorizontalOptions="CenterAndExpand" 
                                HeightRequest="125"
-                               Margin="20, 20, 20, 20" />
+                               Margin="20, 0, 20, 0" />
                     </OnPlatform.Android>
                 </OnPlatform>
             </ContentView>
+
+            <Button Text="Source code" 
+                    HorizontalOptions="Center"
+                    BackgroundColor="Transparent"
+                    TextColor="{AppThemeBinding Light={StaticResource LightThemeBackgroundColor}, Dark={StaticResource DarkThemeBackgroundColor}}"
+                    Margin="0, 0, 0, 20"
+                    Command="{Binding sourceCommand}"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>
