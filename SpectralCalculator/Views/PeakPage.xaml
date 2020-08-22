@@ -60,6 +60,15 @@
                        Keyboard="Numeric" />
             </FlexLayout>
 
+            <!-- Explanation -->
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label Text="Explain this"/>
+                <Switch IsToggled="{Binding explainThis}" />
+            </FlexLayout>
+            <Label IsVisible="{Binding explainThis}"
+                   TextType="Html"
+                   Text="{Binding explanation}" />
+
             <!-- Equations -->
             <Label Text="Equations" FontAttributes="Bold"/>
 

@@ -30,6 +30,7 @@ namespace SpectralCalculator.ViewModels
                 pm.laserWavelength = value;
                 if (notify)
                     OnPropertyChanged();
+                OnPropertyChanged(nameof(explanation));
             }
         }
 
@@ -42,6 +43,7 @@ namespace SpectralCalculator.ViewModels
                 pm.peakWavelength = value;
                 if (notify)
                     OnPropertyChanged();
+                OnPropertyChanged(nameof(explanation));
             }
         }
 
@@ -54,6 +56,7 @@ namespace SpectralCalculator.ViewModels
                 pm.peakWavenumber = value;
                 if (notify)
                     OnPropertyChanged();
+                OnPropertyChanged(nameof(explanation));
             }
         }
 
@@ -114,6 +117,47 @@ namespace SpectralCalculator.ViewModels
                 return;
 
             peakWavelength = SpectralMath.computeWavelength(laserWavelength, peakWavenumber);
+        }
+
+        ////////////////////////////////////////////////////////////////////////
+        // Explanation
+        ////////////////////////////////////////////////////////////////////////
+
+        public bool explainThis
+        {
+            get => _explainThis;
+            set
+            {
+                _explainThis = value;
+                OnPropertyChanged();
+            }
+        }
+        bool _explainThis;
+
+        public string explanation
+        {
+            get
+            {
+                var laserAbsCM = SpectralMath.absoluteWavenumber(pm.laserWavelength);
+                var peakAbsCM = SpectralMath.absoluteWavenumber(pm.peakWavelength);
+
+                return string.Format(
+                    "<div style=\"font-family: sans-serif; font-size: x-large\">" +
+                    "<p>Every wavelength has an <b>absolute wavenumber</b>, expressed in " +
+                    "inverse centimeters (1/cm, or cm⁻¹).  This is literally the number " +
+                    "of <i>waves</i> of the given <i>wave-length</i> which, if laid end-to-end, would " +
+                    "'fit' in one centimeter.  For instance, if a photon had a wavelength " +
+                    "of 1000nm (1µm), its absolute wavenumber would be 10,000, because " +
+                    "10,000 × 1µm = 1cm.</p>" +
+
+                   $"<p>The <i>absolute wavenumber</i> of a {pm.laserWavelength:f2}nm laser " +
+                   $"is {laserAbsCM:f2}cm⁻¹.  Similarly, the <i>absolute wavenumber</i> of " +
+                   $"the peak wavelength {pm.peakWavelength:f2}nm is {peakAbsCM:f2}cm⁻¹. Therefore, " +
+                    "The <b>Raman shift in wavenumbers</b> for that peak, at that excitation, " +
+                   $"would be {laserAbsCM:f2} - {peakAbsCM:f2} = {pm.peakWavenumber:f2}cm⁻¹.</p>" +
+                    "</div>"
+                );
+            }
         }
     }
 }
