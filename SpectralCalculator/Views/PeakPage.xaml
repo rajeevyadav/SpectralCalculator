@@ -21,6 +21,16 @@
                          HeightRequest="100"
                          Margin="0, 10, 0, 0" />
 
+           <!-- Switch for toggling number format
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label Text="Number Format"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="0,000.00"/>
+                    <Switch x:Name="numberSwitch" IsToggled="{Binding numberForm}" />
+                    <Label Text="0.000,00"/>
+                </StackLayout>
+            </FlexLayout> -->
+            
             <!-- Laser Wavelength --> 
             <FlexLayout JustifyContent="SpaceBetween">
                 <Label Text="Laser Wavelength (nm)" />

@@ -24,9 +24,21 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Peak"  Icon="peak_tab.png"  ContentTemplate="{DataTemplate local:PeakPage}" />
-        <ShellContent Title="Range" Icon="range_tab.png" ContentTemplate="{DataTemplate local:RangePage}" />
-        <ShellContent Title="Width" Icon="width_tab.png" ContentTemplate="{DataTemplate local:WidthPage}" />
+        <Tab Title="Peak" Icon="peak_tab.png">
+            <ShellContent Route="Peak">
+                <local:PeakPage />
+            </ShellContent>
+        </Tab>
+        <Tab Title="Range" Icon="range_tab.png">
+            <ShellContent Route="Range">
+                <local:RangePage />
+            </ShellContent>
+        </Tab>
+        <Tab Title="Width" Icon="width_tab.png">
+            <ShellContent Route="Width">
+                <local:WidthPage />
+            </ShellContent>
+        </Tab>
     </TabBar>
 
 </Shell>
