@@ -1,5 +1,8 @@
 # Changelog
 
+- 2022-09-15 1.2.1
+    - changed tab bar active color to white
+    - update nuget packages to fix iOS bug
 - 2020-08-?? 1.2.0
     - added "Explain this"
     - added source link
