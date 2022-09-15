@@ -51,12 +51,12 @@ Global
 		{C1919859-0348-4A5A-856E-66AA6BC70255}.Release|iPhone.Build.0 = Release|iPhone
 		{C1919859-0348-4A5A-856E-66AA6BC70255}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{C1919859-0348-4A5A-856E-66AA6BC70255}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|iPhone.ActiveCfg = Release|Any CPU
+		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|iPhone.Build.0 = Release|Any CPU
+		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Debug|iPhoneSimulator.Build.0 = Release|Any CPU
 		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28EC6D7F-8C52-4838-BA9E-AE52349ABECF}.Release|iPhone.ActiveCfg = Release|Any CPU
@@ -72,6 +72,6 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = Raman calculator for computing wavenumber shifts, ranges and widths
-		version = 1.2
+		version = 1.3
 	EndGlobalSection
 EndGlobal
