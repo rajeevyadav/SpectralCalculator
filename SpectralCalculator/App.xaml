@@ -12,7 +12,7 @@
             <Color x:Key="DarkThemeBackgroundColor">#0c725d</Color>
             <Color x:Key="DarkThemeForegroundColor">DarkRed</Color>
             <Color x:Key="DarkBackgroundColor">#333</Color>
-            <Color x:Key="DarkTextColor">Yellow</Color>
+            <Color x:Key="DarkTextColor">White</Color>
 
             <Style TargetType="Entry">
                 <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}"> </Setter>
